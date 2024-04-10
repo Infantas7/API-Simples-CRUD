@@ -3,6 +3,7 @@
 
 package models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
@@ -18,6 +19,9 @@ import java.util.Objects;
 @Entity
 @Table (name = User.Table_name)
 public class User {
+    public interface CreateUser{}
+    public interface UpdateUser{}
+
     public static final String Table_name = "user";
 
 @Id
@@ -30,23 +34,25 @@ public class User {
 @Column(name = "username" , length = 100, nullable = false, unique = true)
 
 //Anotações responsaveis pelas validações do atributo username, importadas da dependência Spring starter validation do pom.xml
-@NotNull
-@NotEmpty
-@Size(min = 2, max = 100)
+@NotNull (groups = CreateUser.class)
+@NotEmpty (groups = CreateUser.class)
+@Size(groups = CreateUser.class , min = 2, max = 100)
 
  private  String username;
 
 
 
-@Column(name = "password" , length = 100, nullable = false, unique = true)
+@Column(name = "password" , length = 100, nullable = false)
 //Anotação NotBlank equivale as anotaçoes NotNull e NotEmpty juntas.
-@NotBlank
-@Size(min= 8, max = 60)
+@NotBlank (groups = {CreateUser.class, UpdateUser.class})
+@Size(groups = {CreateUser.class, UpdateUser.class} ,min= 8, max = 60)
     private String password;
 
 @OneToMany(mappedBy = "user")
 private List<Task> tasks = new ArrayList<>() ;
 
+
+@JsonIgnore
     public List<Task> getTasks() {
         return tasks;
     }

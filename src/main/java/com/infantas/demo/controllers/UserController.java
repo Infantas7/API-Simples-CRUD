@@ -1,13 +1,13 @@
-package controllers;
+package com.infantas.demo.controllers;
 
 import jakarta.validation.Valid;
-import models.User;
+import com.infantas.demo.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-import services.UserService;
+import com.infantas.demo.services.UserService;
 
 import java.net.URI;
 

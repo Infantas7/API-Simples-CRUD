@@ -1,6 +1,6 @@
-package repositories;
+package com.infantas.demo.repositories;
 
-import models.Task;
+import com.infantas.demo.models.Task;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

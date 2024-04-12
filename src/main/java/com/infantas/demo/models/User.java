@@ -1,7 +1,7 @@
 
 //Classe respondavel por modelar o usuario no banco de dados.
 
-package models;
+package com.infantas.demo.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;

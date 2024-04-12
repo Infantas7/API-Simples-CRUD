@@ -1,11 +1,11 @@
-package services;
+package com.infantas.demo.services;
 
-import models.Task;
-import models.User;
+import com.infantas.demo.models.Task;
+import com.infantas.demo.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import repositories.TaskRepository;
+import com.infantas.demo.repositories.TaskRepository;
 
 import java.util.Optional;
 

@@ -1,4 +1,4 @@
-package models;
+package com.infantas.demo.models;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;

@@ -39,6 +39,7 @@ public class UserController {
     }
     // anotação Spring que identifica um método de  atualização de um objeto
 @PutMapping("/{id}")
+@Validated
     public ResponseEntity<Void> update (@Valid @RequestBody User obj, @PathVariable Integer id){
         this.userService.update(obj);
         return ResponseEntity.noContent().build();

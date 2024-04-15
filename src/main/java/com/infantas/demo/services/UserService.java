@@ -24,6 +24,8 @@ public class UserService {
       Optional<User> user = this.userRepository.findById(id);
       return user.orElseThrow(()-> new RuntimeException("Usuário não encontrado! Id: " + id + ", Tipo: " + User.class.getName()));
     }
+
+
 @Transactional
 public User create (User obj){
       obj.setId(null);
